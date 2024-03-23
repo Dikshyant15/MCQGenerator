@@ -39,12 +39,7 @@ def get_table_data(quiz):
         for key,value in quiz_dict.items():
             questions = value["mcq"]
 
-            options = "|".join
-            (
-                [f"{option_key}: {option_value}"
-                for option_key,option_value in value["options"].items()   
-                ]
-            )
+            options = "|".join([f"{option_key}: {option_value}" for option_key, option_value in value["options"].items()])
             correct = value["correct"]
             quiz_data.append({"mcq":questions,"options":options,"correct":correct})
         return quiz_data
