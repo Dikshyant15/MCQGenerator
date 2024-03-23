@@ -34,7 +34,7 @@ def get_table_data(quiz):
         #json -> dictionary
         quiz_data = []
         #converting json to dictionary 
-        quiz_dict = json.load(quiz)
+        quiz_dict = json.loads(quiz)
         
         for key,value in quiz_dict.items():
             questions = value["mcq"]
@@ -48,5 +48,5 @@ def get_table_data(quiz):
             correct = value["correct"]
             quiz_data.append({"mcq":questions,"options":options,"correct":correct})
         return quiz_data
-    except:
-        raise Exception("Failed to create a table")
+    except Exception as e:
+        raise Exception("Failed to create a table: " + str(e))
